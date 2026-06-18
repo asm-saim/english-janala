@@ -17,6 +17,18 @@ const displayWords = (words) => {
     // 1
     const showWords = document.getElementById("level-show")
     showWords.innerHTML = "";
+
+    if (words.length == 0) {
+        showWords.innerHTML = `
+        <div class=" text-center col-span-3 space-y-5 py-10">
+            <img class="mx-auto" src="./assets/alert-error.png"/>
+            <p class="text-xl font-medium text-gray-500 bangla-font">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
+            <h1 class="text-5xl font-medium bangla-font">নেক্সট Lesson এ যান। </h1>
+        </div>
+        `
+        return;
+    }
+
     //2
     for (let word of words) {
         // console.log(word)
