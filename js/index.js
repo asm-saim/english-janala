@@ -21,9 +21,14 @@ const displayWords = (words) => {
     for (let word of words) {
         // console.log(word)
         //3
+        // {id: 85, level: 1, word: 'Hat', meaning: 'টুপি', pronunciation: 'হ্যাট'}
         const finalCard = document.createElement("div")
-        finalCard.innerHTML = `<p>Cat</p>
-    `
+        finalCard.innerHTML = `<div class="bg-white rounded-sm text-center py-10 px-5 m-5 space-y-5">
+            <h1 class="font-bold text-2xl">${word.word}</h1>
+            <p>Meaning /Pronunciation</p>
+            <p class="font-medium text-lg">${word.meaning}/${word.pronunciation}</p>
+        </div>`
+        // 4
         showWords.append(finalCard)
     }
 
