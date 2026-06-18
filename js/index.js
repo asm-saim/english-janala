@@ -36,9 +36,9 @@ const displayWords = (words) => {
         // {id: 85, level: 1, word: 'Hat', meaning: 'টুপি', pronunciation: 'হ্যাট'}
         const finalCard = document.createElement("div")
         finalCard.innerHTML = `<div class="bg-white rounded-sm text-center py-10 px-5 m-5 space-y-5">
-            <h1 class="font-bold text-2xl">${word.word}</h1>
+            <h1 class="font-bold text-2xl">${word.word ? word.word : "শব্দ পাওয়া যায় নি।"}</h1>
             <p>Meaning /Pronunciation</p>
-            <p class="font-medium text-lg">${word.meaning}/${word.pronunciation}</p>
+            <p class="font-medium text-lg">${word.meaning ? word.meaning : "অর্থ পাওয়া যায় নি। "}/${word.pronunciation ? word.pronunciation : "উচ্চারণ পাওয়া যায় নি।"}</p>
                         <div class="flex justify-between items-center">
                 <button class="btn bg-[#e8f4ff] hover:bg-[#1A91FF80]"> <i
                         class="fa-solid fa-circle-info text-xl"></i></button>
