@@ -1,8 +1,10 @@
+//Load All Vocabulary Levels
 const vocabData = () => {
     fetch("https://openapi.programming-hero.com/api/levels/all")
         .then(response => response.json())
         .then(object => lessons(object.data))
 };
+//
 
 //voice function:
 function pronounceWord(word) {
