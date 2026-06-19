@@ -4,6 +4,13 @@ const vocabData = () => {
         .then(object => lessons(object.data))
 };
 
+//voice function:
+function pronounceWord(word) {
+    const utterance = new SpeechSynthesisUtterance(word);
+    utterance.lang = "en-EN"; // English
+    window.speechSynthesis.speak(utterance);
+}
+
 //spinner
 const manageSpinner = (status) => {
     if (status == true) {
@@ -124,7 +131,7 @@ const displayWords = (words) => {
                         <div class="flex justify-between items-center">
                 <button onclick="onInfoClick(${word.id})" class="btn bg-[#e8f4ff] hover:bg-[#1A91FF80]"> <i
                         class="fa-solid fa-circle-info text-xl"></i></button>
-                <button class="btn bg-[#e8f4ff] hover:bg-[#1A91FF80]"><i
+                <button onclick="pronounceWord('${word.word}')"  class="btn bg-[#e8f4ff] hover:bg-[#1A91FF80]"><i
                         class="fa-solid fa-volume-high text-xl"></i></button>
             </div>
         </div>`
