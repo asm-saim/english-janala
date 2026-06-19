@@ -11,7 +11,6 @@ const removeActive = () => {
     existingActive.forEach(btn => btn.classList.remove("active"))
 }
 
-
 // display cards:
 const loadWordLevel = (id) => {
     const url = `https://openapi.programming-hero.com/api/level/${id}`
@@ -26,6 +25,59 @@ const loadWordLevel = (id) => {
             displayWords(values.data)
         });
 };
+
+//load Word Detail:
+const onInfoClick = async (id) => {
+    const url = `https://openapi.programming-hero.com/api/word/${id}`
+    // console.log(url)
+    const res = await fetch(url);
+    const details = await res.json();
+    displayWordDetails(details.data);
+};
+const displayWordDetails = (wordDetail) => {
+    console.log(wordDetail);
+
+    //     {
+    //     "word": "Sincere",
+    //     "meaning": "সত্‍ / আন্তরিক",
+    //     "pronunciation": "সিনসিয়ার",
+    //     "level": 1,
+    //     "sentence": "He gave a sincere apology.",
+    //     "points": 1,
+    //     "partsOfSpeech": "adjective",
+    //     "synonyms": [
+    //         "honest",
+    //         "genuine",
+    //         "truthful"
+    //     ],
+    //     "id": 19
+    // }
+    const wordInfoDetail = document.getElementById("word-detail")
+    wordInfoDetail.innerHTML = `
+                <div class=" space-y-5">
+                <div class="">
+                    <h1 class="font-bold text-3xl">${wordDetail.word}(<i class="fa-solid fa-microphone-lines"></i> :${wordDetail.pronunciation})</h1>
+                </div>
+                <div class="">
+                    <h1 class="font-semibold text-lg">Meaning</h1>
+                    <p class="font-medium text-base">${wordDetail.meaning}</p>
+                </div>
+                <div class="">
+                    <h1 class="font-semibold text-lg">Example</h1>
+                    <p class="font-medium text-base">${wordDetail.sentence}</p>
+                </div>
+                <div class="">
+                    <h1 class="font-semibold text-lg">সমার্থক শব্দ গুলো</h1>
+                    <button class="btn">${wordDetail.synonyms[0]}</button>
+                    <button class="btn">${wordDetail.synonyms[1]}</button>
+                    <button class="btn">${wordDetail.synonyms[2]}</button>
+                </div>
+            </div>
+    `
+    document.getElementById("my_modal_5").showModal()
+}
+
+
 const displayWords = (words) => {
     // console.log(words);
     // 1
@@ -54,7 +106,7 @@ const displayWords = (words) => {
             <p>Meaning /Pronunciation</p>
             <p class="font-medium text-lg">${word.meaning ? word.meaning : "অর্থ পাওয়া যায় নি। "}/${word.pronunciation ? word.pronunciation : "উচ্চারণ পাওয়া যায় নি।"}</p>
                         <div class="flex justify-between items-center">
-                <button onclick="my_modal_5.showModal()" class="btn bg-[#e8f4ff] hover:bg-[#1A91FF80]"> <i
+                <button onclick="onInfoClick(${word.id})" class="btn bg-[#e8f4ff] hover:bg-[#1A91FF80]"> <i
                         class="fa-solid fa-circle-info text-xl"></i></button>
                 <button class="btn bg-[#e8f4ff] hover:bg-[#1A91FF80]"><i
                         class="fa-solid fa-volume-high text-xl"></i></button>
