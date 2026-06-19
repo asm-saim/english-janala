@@ -23,6 +23,12 @@ const manageSpinner = (status) => {
     }
 }
 
+//word synonyms
+const createElements = (arr) => {
+    const allSynonyms = arr.map((el) => `<span class="btn">${el}</span>`);
+    return (allSynonyms.join(" "));
+};
+
 //removeActive:
 const removeActive = () => {
     const existingActive = document.querySelectorAll(".catchActive");
@@ -90,9 +96,7 @@ const displayWordDetails = (wordDetail) => {
                 </div>
                 <div class="">
                     <h1 class="font-semibold text-lg">সমার্থক শব্দ গুলো</h1>
-                    <button class="btn">${wordDetail.synonyms[0]}</button>
-                    <button class="btn">${wordDetail.synonyms[1]}</button>
-                    <button class="btn">${wordDetail.synonyms[2]}</button>
+                    <div>${createElements(wordDetail.synonyms)}</div>
                 </div>
             </div>
     `
