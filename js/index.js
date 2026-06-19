@@ -155,6 +155,7 @@ const lessons = (values) => {
 vocabData();
 
 // Search section :
+removeActive();
 document.getElementById("btn-search").addEventListener("click", () => {
     const inputSearch = document.getElementById("input-search");
     const searchValue = inputSearch.value.trim().toLowerCase();
