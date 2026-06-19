@@ -92,8 +92,7 @@ const displayWordDetails = (wordDetail) => {
     document.getElementById("my_modal_5").showModal()
 }
 
-//word load
-
+//word load section
 const displayWords = (words) => {
     // console.log(words);
     // 1
@@ -136,6 +135,7 @@ const displayWords = (words) => {
 }
 // 
 
+//lesson section loader
 const lessons = (values) => {
     // console.log(values)
     // 4 1.call the div and empty it, 2.loop,  3.create. 4.append 
@@ -152,5 +152,22 @@ const lessons = (values) => {
         lessonsLevel.append(levelDiv)
     }
 }
-
 vocabData();
+
+// Search section :
+document.getElementById("btn-search").addEventListener("click", () => {
+    const inputSearch = document.getElementById("input-search");
+    const searchValue = inputSearch.value.trim().toLowerCase();
+    console.log(searchValue);
+
+    fetch("https://openapi.programming-hero.com/api/words/all")
+        .then(res => res.json())
+        .then(data => {
+            const allWords = data.data;
+            // console.log(allWords)
+            const filterWords = allWords.filter((word) =>
+                word.word.toLowerCase().includes(searchValue));
+            displayWords(filterWords);
+        });
+})
+
