@@ -4,6 +4,18 @@ const vocabData = () => {
         .then(object => lessons(object.data))
 };
 
+//spinner
+const manageSpinner = (status) => {
+    if (status == true) {
+        document.getElementById("spinner").classList.remove("hidden")
+        document.getElementById("level-show").classList.add("hidden")
+    }
+    else {
+        document.getElementById("spinner").classList.add("hidden")
+        document.getElementById("level-show").classList.remove("hidden")
+    }
+}
+
 //removeActive:
 const removeActive = () => {
     const existingActive = document.querySelectorAll(".catchActive");
@@ -13,6 +25,7 @@ const removeActive = () => {
 
 // display cards:
 const loadWordLevel = (id) => {
+    manageSpinner(true)
     const url = `https://openapi.programming-hero.com/api/level/${id}`
     fetch(url)
         .then(response => response.json())
@@ -25,6 +38,8 @@ const loadWordLevel = (id) => {
             displayWords(values.data)
         });
 };
+
+
 
 //load Word Detail:
 const onInfoClick = async (id) => {
@@ -77,6 +92,7 @@ const displayWordDetails = (wordDetail) => {
     document.getElementById("my_modal_5").showModal()
 }
 
+//word load
 
 const displayWords = (words) => {
     // console.log(words);
@@ -92,6 +108,7 @@ const displayWords = (words) => {
             <h1 class="text-5xl font-medium bangla-font">নেক্সট Lesson এ যান। </h1>
         </div>
         `
+        manageSpinner(false);
         return;
     }
 
@@ -115,7 +132,7 @@ const displayWords = (words) => {
         // 4
         showWords.append(finalCard)
     }
-
+    manageSpinner(false);
 }
 // 
 
