@@ -4,13 +4,27 @@ const vocabData = () => {
         .then(object => lessons(object.data))
 };
 
+//removeActive:
+const removeActive = () => {
+    const existingActive = document.querySelectorAll(".catchActive");
+    // console.log(existingActive)
+    existingActive.forEach(btn => btn.classList.remove("active"))
+}
+
+
 // display cards:
 const loadWordLevel = (id) => {
     const url = `https://openapi.programming-hero.com/api/level/${id}`
     fetch(url)
         .then(response => response.json())
-        .then(values => displayWords(values.data))
-
+        .then(values => {
+            removeActive();// before adding active, removing existing active 
+            //getting id for active btn           
+            const clickedBtn = document.getElementById(`clicked-btn-${id}`)
+            // console.log(clickedBtn);
+            clickedBtn.classList.add("active")
+            displayWords(values.data)
+        });
 };
 const displayWords = (words) => {
     // console.log(words);
@@ -63,7 +77,8 @@ const lessons = (values) => {
         // console.log(lesson);
         // {id: 106, level_no: 6, lessonName: 'Mastering Vocabulary'}
         const levelDiv = document.createElement("div")
-        levelDiv.innerHTML = `<button onclick="loadWordLevel(${lesson.level_no})" class="btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i>Level- ${lesson.level_no}</button>`;
+        levelDiv.innerHTML = `<button id="clicked-btn-${lesson.level_no}" onclick="loadWordLevel(${lesson.level_no})" 
+        class="btn btn-outline btn-primary catchActive"><i class="fa-solid fa-book-open"></i>Level- ${lesson.level_no}</button>`;
 
         lessonsLevel.append(levelDiv)
     }
