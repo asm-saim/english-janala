@@ -1,4 +1,3 @@
-````md
 <img src="./assets/logo.png" width="100" style="background:white;padding:10px;border-radius:8px;"/>
 
 # English Janala
@@ -146,4 +145,4 @@ English-Janala/
 - LinkedIn: https://www.linkedin.com/in/asmsaim/
 
 ---
-````
+
