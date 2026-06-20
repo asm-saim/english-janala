@@ -76,22 +76,28 @@ The project focuses on **dynamic API integration**, **responsive UI design**, **
 <table>
 <tr>
 <td align="center"><b>Home Page</b></td>
-<td align="center"><b>Vocabulary Cards</b></td>
+<td align="center"><b>Learning Page</b></td>
 </tr>
 
 <tr>
-<td><img src="./screenshots/homepage.png" alt="Home Page"></td>
-<td><img src="./screenshots/cards.png" alt="Vocabulary Cards"></td>
+<td><img src="./screenshots/hero-section.png" alt="Home Page"></td>
+<td><img src="./screenshots/learn-section.png" alt="Vocabulary Cards"></td>
 </tr>
 
 <tr>
 <td align="center"><b>Word Details Modal</b></td>
-<td align="center"><b>Mobile Responsive View</b></td>
+<td align="center"><b>Cards Section</b></td>
 </tr>
 
 <tr>
-<td><img src="./screenshots/modal.png" alt="Word Details"></td>
-<td><img src="./screenshots/mobile.png" alt="Mobile View"></td>
+<td><img src="./screenshots/modal.PNG" alt="Word Details"></td>
+<td><img src="./screenshots/card-section.PNG" alt="Mobile View"></td>
+</tr>
+
+
+<tr>
+<td><img src="./screenshots/search-option.PNG" alt="Word Details"></td>
+<td><img src="./screenshots/card-section.PNG" alt="Mobile View"></td>
 </tr>
 </table>
 
