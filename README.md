@@ -115,21 +115,6 @@ The project focuses on **dynamic API integration**, **responsive UI design**, **
 
 ---
 
-## Project Structure
-
-```text
-English-Janala/
-│
-├── assets/
-├── screenshots/
-├── index.html
-├── style.css
-├── script.js
-└── README.md
-```
-
----
-
 ## Future Improvements
 - Implement user authentication (Sign Up, Login, and Logout)
 - Store saved vocabulary using Local Storage
